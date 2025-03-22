@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="inherit_real_estate_form" model="ir.ui.view">
+            <field name="name">inherit.real.estate.form</field>
+            <field name="model">property.property</field>
+            <field name="inherit_id" ref="real_estate_management.property_property_view_form"/>
+                <field name="arch" type="xml">   
+                    <xpath expr="//div[contains(@class,'oe_title')]" position="after">
+                        <div class="oe_title">
+                            <h1>
+                                <label for="project" string="Project"/>
+                                <br/>
+                                <field name="project" widget="label" style="font-weight: bold;"/>
+                            </h1>
+                        </div>
+                    </xpath>
+                    <xpath expr="//field[@name='license_no']" position="before">
+                        <field name="total_floor_count"  />
+                    </xpath>
+                    <xpath expr="//field[@name='responsible_id']" position="after">
+                        <field name="floor_id" />
+                    </xpath>
+                </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id="group_odoo_gmail_connector" model="res.groups">
+        <field name="name">Odoo Gmail Connector</field>
+    </record>
+
+</odoo>

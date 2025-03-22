@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <record model="ir.ui.view" id="inherit_email_compose_message_wizard_form">
+            <field name="name">mail.compose.message.form.inherit</field>
+            <field name="model">mail.compose.message</field>
+            <field name="inherit_id" ref="mail.email_compose_message_wizard_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//span[@name='document_followers_text']" position="replace"/>
+                <xpath expr="//field[@name='partner_ids']" position="replace">
+                    <field name="partner_ids" widget="many2many_tags" placeholder="Add contacts to notify..."
+                           options="{'no_quick_create': True}"
+                           context="{'show_email':True, 'form_view_ref': 'base.view_partner_simple_form'}"/>
+                </xpath>
+
+            </field>
+        </record>
+</odoo>

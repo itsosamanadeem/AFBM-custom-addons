@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <t t-name="product_list_view_mutliedit.list_view_inherit"
+       t-inherit="web.ListView.Buttons" owl="1">
+        <xpath expr="//div[contains(@class, 'o_list_buttons')]" position="before">
+            <button id="edit_icon" 
+                    type="button"
+                    class="btn btn-secondary fa fa-edit oe-list-edit"
+                    style="height:100% !important;"
+                    aria-label="Edit"/>
+        </xpath>
+    </t>
+</templates>
+
+                    <!-- t-on-click="onEditSelectedProducts" -->

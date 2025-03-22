@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_hr_employee_form_inherited" model="ir.ui.view">
+        <field name="name">hr.employee.form.inherited</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[contains(@class, 'row') and contains(@class, 'justify-content-between') and contains(@class, 'position-relative') and contains(@class, 'w-100') and contains(@class, 'm-0') and contains(@class, 'mb-2')]" position="before">
+                <label for='emp_id' string='Employee ID' style="font-size: min(2vw, 1.3rem);"></label>
+                <div>
+                    <span style="font-size: min(2vw, 1.3rem);">EMP/</span>
+                    <field name="emp_id" style="font-size: 12"/>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

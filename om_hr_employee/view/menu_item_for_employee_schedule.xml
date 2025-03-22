@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record model="ir.actions.act_window" id="action_employee_working_schedule">
+        <field name="name">Employee Work Schedule</field>
+        <field name="view_id" ref="employee_work_schedule_form_view_id"/>
+        <field name="res_model">employee.working.schedule</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="employee_work_schedule_form_view_id" model="ir.ui.view">
+        <field name="name">employee.work.schedule.form.view.id</field>
+        <field name="model">employee.working.schedule</field>
+        <field name="arch" type="xml">
+            <form string="Employee Working Schedule">
+                <header>
+                    <button name="schedule_four_weeks" type="object" string="Switch to 4 weeks schedule" class="btn btn-primary me-1"/>
+                    <button name="delete_schedule" type="object" string="Delete 4 weeks schedule" class="btn btn-primary me-1"/>
+                </header>
+                <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="average_hours_per_week" widget="float_time" />
+                            <field name="time_zone" widget="timezone_mismatch"/>
+                        </group>
+                        <notebook>
+                            <page string="Working Schedule">
+                                <field name="working_schedule_ids" widget="customtree">
+                                    <tree editable="bottom" create="0" delete="false" >
+                                        <field name="name" readonly="1"/>
+                                        <field name="day_of_week" readonly="1"/>
+                                        <field name="shift" readonly="1"/>
+                                        <field name="start_time" />
+                                        <field name="end_time" />
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+<menuitem id="menu_employee_working_schedule"
+          name="Employee Working Schedule"
+          parent="hr.menu_hr_root"
+          action="action_employee_working_schedule"
+          sequence="40"
+          groups="base.group_user"/>
+
+</odoo>

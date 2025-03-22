@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="om_hr_employee.CustomListRenderer"  owl="1">
+    <h1 >Osama</h1>
+    </t>
+</templates>
+<!-- <?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="om_hr_employee.CustomListRenderer" t-inherit="web.ListRenderer.RecordRow" owl="1">
+            <attribute name="t-attf-style">color: blue; margin-left: 10px; background-color: red !important;</attribute>
+        </xpath>
+    </t>
+</templates> -->

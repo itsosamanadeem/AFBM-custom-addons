@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="mail_mail_tree_view" model="ir.ui.view">
+        <field name="name">mail.mail.tree.view</field>
+        <field name="model">mail.mail</field>
+        <field name="type">tree</field>
+        <field name="inherit_id" ref="mail.view_mail_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="field[@name='author_id']" position="replace">
+                <field name="author_id" string="User" invisible="1" column_invisible="1"/>
+            </xpath>
+            <xpath expr="field[@name='date']" position="replace">
+                <field name="date" string="date" invisible="True" column_invisible="True"/>
+
+            </xpath>
+
+            <xpath expr="field[@name='subject']" position="before">
+                <field name="author_id" string="User" />
+            </xpath>
+            <xpath expr="field[@name='subject']" position="after">
+                <field name="date" string="Date" />
+                <field name="sender_user" string="Sender User" invisible="1" column_invisible="1"/>
+                <field name="receiver_user" string="Receiver User" invisible="1" column_invisible="1"/>
+
+            </xpath>
+
+        </field>
+    </record>
+    <record id="mail_compose_message_form_view_inherit" model="ir.ui.view">
+        <field name="name">mail.compose.message.form.view.inherit</field>
+        <field name="model">mail.compose.message</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="mail.email_compose_message_wizard_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='subject']" position="before">
+                <field name="email_cc" string="Cc" widget="many2many_tags"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_mail_sent" model="ir.actions.act_window">
+        <field name="name">Sent Mail</field>
+        <field name="res_model">mail.mail</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="ks_odoo_gmail_connector.mail_mail_tree_view"/>
+        <field name="context">{'create': False, 'edit':False}</field>
+        <field name="domain">[('gmail_type', '=', 'sent'),('sender_user', '=', uid)]</field>
+    </record>
+
+    <record id="action_mail_receive" model="ir.actions.act_window">
+        <field name="name">Inbox</field>
+        <field name="res_model">mail.mail</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'create': False, 'edit':False}</field>
+        <field name="view_id" ref="mail.view_mail_tree"/>
+        <field name="domain">[('gmail_type', '=', 'receive'), ('receiver_user', '=', uid)]</field>
+    </record>
+
+</odoo>

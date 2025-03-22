@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_gmail_filters,access.gmail.filters,model_gmail_filters,,1,1,1,1
+access_gmail_alias,access.gmail.alias,model_gmail_alias,,1,1,1,1
+access_mail_mail,access.mail.mail,model_mail_mail,ks_odoo_gmail_connector.group_odoo_gmail_connector,1,1,1,1
+access_queue_job_manager,queue job manager,ks_odoo_gmail_connector.model_queue_job,,1,1,1,1
+access_queue_job_function_manager,queue job functions manager,ks_odoo_gmail_connector.model_queue_job_function,,1,1,1,1
+access_queue_job_channel_manager,queue job channel manager,ks_odoo_gmail_connector.model_queue_job_channel,,1,1,1,1
+access_queue_requeue_job,queue requeue job manager,ks_odoo_gmail_connector.model_queue_requeue_job,,1,1,1,1
+access_queue_jobs_to_done,queue jobs to done manager,ks_odoo_gmail_connector.model_queue_jobs_to_done,,1,1,1,1
+access_queue_jobs_to_cancelled,queue jobs to cancelled manager,ks_odoo_gmail_connector.model_queue_jobs_to_cancelled,,1,1,1,1

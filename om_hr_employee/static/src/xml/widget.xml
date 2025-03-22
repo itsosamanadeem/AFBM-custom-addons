@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="om_hr_employee.HideValues" owl="1">
+        <t t-if="this.props.record.data.start_time !== 0">
+            <input 
+                type="number" 
+                t-model="this.props.record.data.start_time" 
+                t-on-change="updateStartTime" 
+                class="form-control"
+                style="text-align: right;"
+            />
+        </t>
+        <t t-else="">
+            <span></span>
+        </t>
+    </t>
+</templates>

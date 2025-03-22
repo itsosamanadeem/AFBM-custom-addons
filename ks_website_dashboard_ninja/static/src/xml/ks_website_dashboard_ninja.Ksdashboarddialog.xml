@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+<t t-name="ks_website_dashboard_ninja.s_dashboard_dialog">
+        <Dialog title="props.title">
+           <div class='ks_main_div'>
+               <p style='margin: 5px 15px; position:relative; left:-15px;'>Select Dashboard:</p>
+               <select style="position:relative; left:115px; width:830px; top:-25px; padding-left:2px" t-ref="ks_selection">
+                   <t t-foreach="state.dashboard" t-as="dashboard" t-key="dashboard_index">
+                       <option t-att-value="dashboard['name']" t-att-id="dashboard['id']">
+                           <t t-esc="dashboard.name"/>
+                       </option>
+                   </t>
+               </select>
+               <label class="ks_container" style="">All user
+                    <input type="radio" style="position:relative; top:2px; left:5px;" value="all_user" name="ks_data" checked="checked"/>
+                    <span class="checkmark"></span>
+               </label>
+
+               <label class="ks_container" style="position:relative; left:20px;">User Data
+               <input type="radio" style="position:relative; top:2px; left:5px;" name="ks_data" value="user_data"/>
+               <span class="checkmark"></span>
+               </label>
+
+           </div>
+            <t t-set-slot="footer">
+                <button class="btn btn-primary" t-on-click="onConfirm">Save</button>
+                <button class="btn" t-on-click="this.props.close">Discard</button>
+            </t>
+        </Dialog>
+    </t>
+</templates>

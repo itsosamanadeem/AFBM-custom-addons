@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <t t-name="product_list_view_mutliedit.ProductPriceEditDialog" owl="1">
+        <Dialog title="Edit Product Prices" class="o_form_view_dialog">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Standard Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-foreach="props.records" t-as="record">
+                        <tr>
+                            <td><t t-esc="record.name"/></td>
+                            <td>
+                                <input type="number"
+                                       class="form-control"
+                                       t-att-value="state.prices[record.id]"
+                                       t-on-input="updatePrice.bind(null, record.id)" />
+                            </td>
+                        </tr>
+                    </t>
+                </tbody>
+            </table>
+            <t t-set="buttons">
+                <button type="button" class="btn btn-secondary" t-on-click="props.close">Cancel</button>
+                <button type="button" class="btn btn-primary" t-on-click="savePrices">Save</button>
+            </t>
+        </Dialog>
+    </t>
+</templates>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id="gmail_alias_form_view" model="ir.ui.view">
+        <field name="name">gmail.alias.form</field>
+        <field name="model">gmail.alias</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <label for="name" string="Alias Mail"/>
+
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" placeholder="example@gmail.com" string="Alias Mail"/>
+
+                            </h1>
+                        </div>
+                        <field name="model_id" invisible="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="gmail_alias_tree_view" model="ir.ui.view">
+        <field name="name">gmail.alias.tree</field>
+        <field name="model">gmail.alias</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" string="Alias Mail"/>
+                <field name="model_id" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="action_gmail_alias_1" model="ir.actions.act_window">
+        <field name="name">Gmail Alias</field>
+        <field name="res_model">gmail.alias</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+</odoo>

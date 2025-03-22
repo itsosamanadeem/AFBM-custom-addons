@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id="gmail_filters_form_view" model="ir.ui.view">
+        <field name="name">gmail.filters.form</field>
+        <field name="model">gmail.filters</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="filter_type" string="Apply Domain" default_focus="1"/>
+                        <label for="name" string="Filter Pattern"/>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" string="Filter Pattern"/>
+                            </h1>
+                        </div>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="gmail_filters_tree_view" model="ir.ui.view">
+        <field name="name">gmail.filters.tree</field>
+        <field name="model">gmail.filters</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" string="Filter Pattern"/>
+                <field name="filter_type" string="Apply Domain"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="action_gmail_filters" model="ir.actions.act_window">
+        <field name="name">Gmail Filters</field>
+        <field name="res_model">gmail.filters</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+</odoo>

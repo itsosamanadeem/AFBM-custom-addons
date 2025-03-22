@@ -1,0 +1,104 @@
+<odoo>
+    <data>
+        <record id="view_general_settings_form_inherit" model="ir.ui.view">
+            <field name="name">general.settings.config.parameter.inherit</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@id='companies']" position="after">
+                    <h2>Mail Servers</h2>
+                    <div class="row mt16 o_settings_container" id="product_general_settings">
+
+                        <label for="activate_gmail_service" string="Choose Mail Service"/>
+                        <div class="text-muted">
+                            Choose the server which you want to use for Incoming and Outgoing Mail.
+                        </div>
+                        <div class="content-group">
+                            <div class="mt16">
+                                <field name="activate_gmail_service" class="o_light_label" widget="radio"/>
+                            </div>
+                            <div class="mt8"
+                                 invisible="activate_gmail_service in ['gmail_server', 'false']">
+
+                                <button type="action"
+                                        name="%(mail.action_email_server_tree)d"
+                                        string="Incoming Email Servers" icon="fa-arrow-right" class="btn-link"/>
+                            </div>
+                            <div class="mt8"
+                                 invisible="activate_gmail_service in ['gmail_server', 'false']">
+
+                                <button type="action"
+                                        name="%(base.action_ir_mail_server_list)d"
+                                        string="Outgoing Email Servers" icon="fa-arrow-right" class="btn-link"/>
+                            </div>
+                            <div class="mt16"
+                                 invisible="activate_gmail_service in ['smtp_server', 'false']">
+
+                                <label for="google_gmail_client_identifier" string="Client ID : "/>
+                                <a href="https://developers.google.com/identity/gsi/web/guides/get-google-api-clientid"
+                                   title="Get Gmail API credentials" class="o_doc_link" target="_blank"/>
+                                <field name="google_gmail_client_identifier" class="o_light_label" string="Client ID"/>
+
+
+                            </div>
+                            <div class="mt16"
+                                 invisible="activate_gmail_service in ['smtp_server', 'false']">
+
+                                <label for="google_gmail_client_secret" string="Client Secret : "/>
+                                <a href="https://developers.google.com/identity/gsi/web/guides/get-google-api-clientid"
+                                   title="Get Gmail API credentials" class="o_doc_link" target="_blank"/>
+                                <field name="google_gmail_client_secret" type="password" class="o_light_label"
+                                       string="Client Secret"/>
+                                <div class="text-muted">
+                                    To get the Client ID and Client Secret, please click on the link
+                                    <a href="https://console.cloud.google.com/"
+                                       target="_blank">
+                                        <i class="fa fa-fw fa-arrow-right"/>
+                                    </a>
+                                </div>
+                                <br/>
+                                <label for="mail_user_id" string="Admin User : "/>
+                                <field name="mail_user_id" type="radio" class="o_light_label"
+                                       string="Admin User"/>
+                            </div>
+
+                            <div class="mt16"
+                                 invisible="activate_gmail_service in ['smtp_server', 'false'] or google_gmail_client_identifier == False or google_gmail_client_secret == False">
+
+                                <field name="receiving_server" class="o_light_label" widget="radio"/>
+                                <div class="text-muted">
+                                    Webhook : On Selecting Webhook, mail will be synced in real time.
+
+                                </div>
+                                <div class="text-muted">
+                                    Scheduled Action : On Selecting Scheduled Action, mail will be synced based on
+                                    scheduled time.
+                                </div>
+                            </div>
+                            <div class="mt16"
+                                 invisible="activate_gmail_service in ['smtp_server', 'false'] or google_gmail_client_identifier == False or google_gmail_client_secret == False or receiving_server in ['cron', False]">
+
+                                <label for="topic" string="Topic"/>
+                                <a href="https://cloud.google.com/pubsub/docs/publish-receive-messages-console"
+                                   title="Get Gmail API credentials" class="o_doc_link" target="_blank"/>
+                                <field name="topic" class="o_light_label"
+                                       required="receiving_server == 'webhook'"/>
+
+                                <div class="text-muted">
+                                    To get the Topic, Create pub/sub topic and subscription, please click on the link
+                                    <a href="https://console.cloud.google.com/cloudpubsub/topic"
+                                       target="_blank">
+                                        <i class="fa fa-fw fa-arrow-right"/>
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

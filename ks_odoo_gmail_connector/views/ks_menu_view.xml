@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+
+
+
+    <record id="action_open_mail_wizard_gmail" model="ir.actions.act_window">
+        <field name="name">Compose Email</field>
+        <field name="res_model">mail.compose.message</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="mail.email_compose_message_wizard_form"/>
+        <field name="target">new</field>
+    </record>
+    <menuitem id="root_menu" web_icon="ks_odoo_gmail_connector,static/description/icon.png" name="Gmail" groups="base.group_system,ks_odoo_gmail_connector.group_odoo_gmail_connector"/>
+
+    <menuitem id="gmail_email" parent="ks_odoo_gmail_connector.root_menu" name="Emails"/>
+    <menuitem id="gmail_email_receive" parent="gmail_email" action="ks_odoo_gmail_connector.action_mail_receive" name="Inbox"
+    sequence="1"/>
+    <menuitem id="gmail_email_sent" parent="gmail_email" sequence="2" action="ks_odoo_gmail_connector.action_mail_sent" name="Sent"/>
+    <menuitem id="menu_open_mail_wizard_gmail" parent="gmail_email" name="Compose Email" sequence="3"
+              action="action_open_mail_wizard_gmail"/>
+
+
+    <menuitem id="gmail_configuration" parent="ks_odoo_gmail_connector.root_menu" name="Configuration"
+              groups="base.group_system"/>
+    <menuitem id="gmail_filters" name="Gmail Filter" parent="gmail_configuration"
+              action="ks_odoo_gmail_connector.action_gmail_filters" sequence="2"/>
+    <menuitem id="gmail_alias_1" name="Gmail Alias" parent="ks_odoo_gmail_connector.gmail_configuration"
+              action="ks_odoo_gmail_connector.action_gmail_alias_1" sequence="1"/>
+    <menuitem
+        id="menu_queue_job"
+        action="ks_odoo_gmail_connector.action_queue_job"
+        sequence="10"
+        parent="ks_odoo_gmail_connector.gmail_configuration"
+    />
+
+    <menuitem
+        id="menu_queue_job_channel"
+        action="action_queue_job_channel"
+        sequence="12"
+        parent="ks_odoo_gmail_connector.gmail_configuration"
+    />
+
+    <menuitem
+        id="menu_queue_job_function"
+        action="action_queue_job_function"
+        sequence="14"
+        parent="ks_odoo_gmail_connector.gmail_configuration"
+    />
+
+</odoo>

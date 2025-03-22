@@ -1,0 +1,11 @@
+.custom-dropdown {
+  display: none;
+  position: absolute;
+  background-color: white;
+  width: 200px;
+  max-height: 200px; /* Scrollable */
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}

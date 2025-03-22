@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <!-- Inherits X2ManyField view in Odoo to add a search input field.-->
+    <t t-name="One2ManyButtonsTemplate" t-inherit="web.X2ManyField"
+       t-inherit-mode="primary" owl="1">
+       <div t-att-class="className" position="after" >
+            <div style="position: relative; display: inline-block;">
+                <button type="button" class="btn btn-primary dropdown-toggle" t-on-click="toggleDropdown">
+                    <t t-esc="selectedOption.value"/>
+                </button>
+
+                <div t-ref="dropdownMenu" class="dropdown-menu custom-dropdown">
+                    <a class="dropdown-item" t-on-click="onOptionSelect.bind(this, 'Option1')">Option 1</a>
+                    <a class="dropdown-item" t-on-click="onOptionSelect.bind(this, 'Option2')">Option 2</a>
+                    <a class="dropdown-item" t-on-click="onOptionSelect.bind(this, 'Option3')">Option 3</a>
+                    <a class="dropdown-item" t-on-click="onOptionSelect.bind(this, 'Option4')">Option 4</a>
+                    <a class="dropdown-item" t-on-click="onOptionSelect.bind(this, 'Option5')">Option 5</a>
+                    <a class="dropdown-item" t-on-click="onOptionSelect.bind(this, 'Option6')">Option 6</a>
+                    <a class="dropdown-item" t-on-click="onOptionSelect.bind(this, 'Option7')">Option 7</a>
+                    <a class="dropdown-item" t-on-click="onOptionSelect.bind(this, 'Option8')">Option 8</a>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>

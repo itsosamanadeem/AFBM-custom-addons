@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="product_list_view_mutliedit.allow_edit_field" owl="1">
+        <div class="d-flex align-items-center">
+            <input 
+                type="text" 
+                t-model="this.state.standard_price"
+                t-on-blur="update_standard_price"
+                class="o_input o_list_number form-control h-100"
+                style="text-align: right; border: none; outline: none; -moz-appearance: textfield;"
+            />
+            <span t-esc="this.state.currency" class="ms-2"/>
+        </div>
+    </t>
+</templates>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_property_floor_tree" model="ir.ui.view">
+        <field name="name">property.floor.tree</field>
+        <field name="model">property.floor</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" class="text-left"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_property_floor_form" model="ir.ui.view">
+        <field name="name">property.floor.form</field>
+        <field name="model">property.floor</field>
+        <field name="arch" type="xml">
+            <form string="Property Floor">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_property_floor" model="ir.actions.act_window">
+        <field name="name">Property Floors</field>
+        <field name="res_model">property.floor</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_property_floor" name="Property Floors"
+              parent="real_estate_management.property_menu"
+              action="action_property_floor"/>
+</odoo>

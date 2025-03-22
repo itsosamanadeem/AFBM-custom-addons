@@ -1,0 +1,36 @@
+<odoo>
+    <data noupdate="1">
+        <record id="ir_cron_receive_mail" model="ir.cron">
+            <field name="name">Mail: Recieve Mail Service</field>
+            <field name="model_id" ref="model_mail_mail"/>
+            <field name="state">code</field>
+            <field name="code">model.cron_receive_email()</field>
+            <field name="interval_number">5</field>
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+            <field name="active" eval="False"/>
+        </record>
+
+        <record id="ir_cron_create_watch" model="ir.cron">
+            <field name="name">Gmail: Create Watches for accessing webhook</field>
+            <field name="model_id" ref="model_mail_mail"/>
+            <field name="state">code</field>
+            <field name="code">model.ks_cron_create_watch()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record id="logout_users" model="ir.cron">
+            <field name="name">Logout User's After Setup</field>
+            <field name="model_id" ref="model_mail_mail"/>
+            <field name="state">code</field>
+            <field name="code">model.ks_logout_user()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">months</field>
+            <field name="numbercall">1</field>
+            <field name="active" eval="False"/>
+        </record>
+
+    </data>
+</odoo>

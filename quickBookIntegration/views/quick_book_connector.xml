@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.actions.act_window" id="quickbook_action">
+            <field name="name">Tuition Student</field>
+            <field name="res_model">quickbook.connector</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record id="quickbook_connect_view_tree" model="ir.ui.view">
+            <field name="name">quickbook.connector.view.tree</field>
+            <field name="model">quickbook.connector</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="client_id"/>
+                    <field name="client_secert"/>
+                    <field name="redirect_url"/>
+                    <field name="auth_code"/>
+                </tree>
+            </field>
+        </record>
+        <record id="quickbook_connect_view_form" model="ir.ui.view">
+            <field name="name">quickbook.connector.view.form</field>
+            <field name="model">quickbook.connector</field>
+            <field name="arch" type="xml">
+                <form string="Tuition">
+                    <header>
+                        <button string="Cancel" class="btn-default" special="cancel"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="client_id"/>
+                            <field name="client_secert"/>
+                            <field name="redirect_url"/>
+                            <field name="auth_code"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <menuitem id="quickbook_connector_root"
+             name="QuickBook Connector"/>
+        <menuitem
+                id="quickbook_connector_menu"
+                name="Connects"
+                parent="quickbook_connector_root"
+                action="quickbook_action"/>
+    </data>
+</odoo>
